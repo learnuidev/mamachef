@@ -1,3 +1,4 @@
+import { ModeToggle } from "@/components/toggle-theme";
 import { LanguageSwitcher } from "@/libs/i18n-next/language-switcher";
 import { useTranslation } from "@/libs/i18n-next/use-translation";
 import { createFileRoute } from "@tanstack/react-router";
@@ -11,6 +12,8 @@ function App() {
   return (
     <div>
       <LanguageSwitcher />
+
+      <ModeToggle />
       <section className="flex justify-center items-center flex-col mt-32">
         <h1 className="text-7xl font-bold lg:text-9xl">{t("banner:title")}</h1>
         <p className="mt-4 text-3xl font-light lowercase">
