@@ -1,0 +1,19 @@
+{
+  "aiProvider": "openai",
+  "aiModel": "gpt-4o-mini",
+  "sync": {
+    "type": "local"
+  },
+  "locale": {
+    "sourceEntries": [
+      "src"
+    ],
+    "location": "src/locales",
+    "sourceLanguage": "en",
+    "targetLanguages": [
+      "fr",
+      "es",
+      "zh"
+    ]
+  }
+}
