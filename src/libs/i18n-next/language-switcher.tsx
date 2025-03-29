@@ -44,9 +44,7 @@ export function LanguageSwitcher() {
         }}
         name="languages"
         id="languages"
-        value={
-          localStorage.getItem("locale") || myelinConfig.locale.sourceLanguage
-        }
+        value={localStorage.getItem("locale") || srcLang}
       >
         <option value={srcLang}> {languagesList?.[srcLang as Language]}</option>
         {Object.entries(languagesList)
