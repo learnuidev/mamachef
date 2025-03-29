@@ -36,8 +36,8 @@ export type Language = keyof typeof languagesList;
 
 export const i18nConfig = {
   cookieName: "I18N_COOKIE",
-  fallbackLanguage: localStorage.getItem("locale") || "en",
-  defaultNamespace: "banner",
+  fallbackLanguage: "en",
+  defaultNamespace: "common",
   languages: Object.keys(displayLanguages) as Language[],
 };
 
