@@ -12,6 +12,7 @@ import { useState } from "react";
 // } from "@/components/ui/dropdown-menu";
 
 import { useRouter } from "@tanstack/react-router";
+import myelinConfig from "../../../myelin.config.json";
 import { getCookie, setCookie } from "./cookie-utils";
 import { type Language, i18nConfig, languagesList } from "./i18n-config";
 import { useTranslation } from "./use-translation";
@@ -33,32 +34,31 @@ export function LanguageSwitcher() {
     });
   };
 
+  const srcLang = myelinConfig.locale.sourceLanguage;
+
   return (
-    <div className="flex gap-4 items-center justify-center my-4 text-xs">
-      <button
-        type="button"
-        onClick={() => {
-          handleChange("en");
+    <div>
+      <select
+        onChange={(event) => {
+          handleChange(event.target.value as Language);
         }}
+        name="languages"
+        id="languages"
       >
-        {languagesList.en}
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          handleChange("fr");
-        }}
-      >
-        {languagesList.fr}
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          handleChange("es");
-        }}
-      >
-        {languagesList.es}
-      </button>
+        <option value={srcLang}> {languagesList?.[srcLang as Language]}</option>
+        {Object.entries(languagesList)
+          .filter((val) => {
+            return myelinConfig.locale.targetLanguages.includes(val[0]);
+          })
+          .map((item) => {
+            return (
+              <option key={item?.[0]} value={item?.[0]}>
+                {" "}
+                {item?.[1]}
+              </option>
+            );
+          })}
+      </select>
     </div>
   );
 
