@@ -36,8 +36,6 @@ export function LanguageSwitcher() {
 
   const srcLang = myelinConfig.locale.sourceLanguage;
 
-  //yoo
-
   return (
     <div>
       <select
